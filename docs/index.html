@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlissClub Last Mile Operations Intelligence & Decision Suite</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fdf2f8',
+              100: '#fce7f3',
+              500: '#ec4899',
+              600: '#db2777',
+              700: '#be185d',
+              900: '#831843',
+            },
+            slate: {
+              850: '#151e2e',
+              900: '#0f172a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .tab-active {
+      border-bottom: 2px solid #db2777;
+      color: #db2777;
+      font-weight: 600;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-brand-600 to-pink-400 flex items-center justify-center text-white font-bold text-xl shadow-md">
+            BC
+          </div>
+          <div>
+            <h1 class="text-lg font-bold text-slate-900 leading-tight">BlissClub Last Mile Intelligence</h1>
+            <p class="text-xs text-slate-500 font-medium">Operations Manager Case Defense • 92,707 Shipments (Jan 2026)</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
+            ● Rate Card Audited
+          </span>
+          <a href="EXECUTIVE_MEMO.html" class="hidden sm:inline-flex items-center px-3 py-1.5 border border-slate-300 text-xs font-semibold rounded-md text-slate-700 bg-white hover:bg-slate-50 transition shadow-sm" onclick="alert('Viewing comprehensive Executive Strategic Memo in docs/EXECUTIVE_MEMO.md'); return false;">
+            Executive Memo
+          </a>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="flex space-x-8 overflow-x-auto custom-scrollbar text-sm font-medium border-t border-slate-100 -mb-px">
+        <button onclick="switchTab('tab-delivery')" id="nav-delivery" class="tab-btn py-3 px-1 border-b-2 border-transparent text-slate-500 hover:text-slate-700 whitespace-nowrap tab-active">
+          1. Delivery Health
+        </button>
+        <button onclick="switchTab('tab-cost')" id="nav-cost" class="tab-btn py-3 px-1 border-b-2 border-transparent text-slate-500 hover:text-slate-700 whitespace-nowrap">
+          2. Cost-to-Serve
+        </button>
+        <button onclick="switchTab('tab-geo')" id="nav-geo" class="tab-btn py-3 px-1 border-b-2 border-transparent text-slate-500 hover:text-slate-700 whitespace-nowrap">
+          3. Geo & Mix Intelligence
+        </button>
+        <button onclick="switchTab('tab-courier')" id="nav-courier" class="tab-btn py-3 px-1 border-b-2 border-transparent text-slate-500 hover:text-slate-700 whitespace-nowrap">
+          4. Courier Strategy & Simulator
+        </button>
+        <button onclick="switchTab('tab-sla')" id="nav-sla" class="tab-btn py-3 px-1 border-b-2 border-transparent text-slate-500 hover:text-slate-700 whitespace-nowrap">
+          5. Process SLA Funnel
+        </button>
+        <button onclick="switchTab('tab-agenda')" id="nav-agenda" class="tab-btn py-3 px-1 border-b-2 border-transparent text-slate-500 hover:text-slate-700 whitespace-nowrap">
+          6. 90-Day Action Agenda
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+
+    <!-- TAB 1: DELIVERY HEALTH & RELIABILITY -->
+    <div id="tab-delivery" class="tab-pane space-y-6">
+      <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 rounded-2xl shadow-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <span class="inline-block px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-brand-500 text-white mb-2">Question 1 Defense</span>
+          <h2 class="text-2xl font-bold">Delivery Health & Network Reliability</h2>
+          <p class="text-slate-300 text-sm max-w-2xl mt-1">High-level delivery performance is robust at 94.94%, but concealed risk lies in extreme carrier concentration and COD return rates.</p>
+        </div>
+        <div class="bg-slate-800/80 border border-slate-700 px-4 py-3 rounded-xl text-right">
+          <p class="text-xs text-slate-400 font-medium">Evaluated Shipments</p>
+          <p class="text-2xl font-black text-brand-400" id="stat-total-shipments">92,707</p>
+          <p class="text-xs text-emerald-400">Jan 1 – Jan 31, 2026</p>
+        </div>
+      </div>
+
+      <!-- Metric Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold uppercase text-slate-400 tracking-wider">Gross Delivery Rate</p>
+          <p class="text-3xl font-black text-emerald-600 mt-2">94.94%</p>
+          <p class="text-xs text-slate-500 mt-1">88,013 Delivered Shipments</p>
+          <div class="w-full bg-slate-100 rounded-full h-1.5 mt-3">
+            <div class="bg-emerald-500 h-1.5 rounded-full" style="width: 94.94%"></div>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold uppercase text-slate-400 tracking-wider">Return to Origin (RTO)</p>
+          <p class="text-3xl font-black text-amber-500 mt-2">5.00%</p>
+          <p class="text-xs text-slate-500 mt-1">4,631 Failed Deliveries</p>
+          <div class="w-full bg-slate-100 rounded-full h-1.5 mt-3">
+            <div class="bg-amber-500 h-1.5 rounded-full" style="width: 5.0%"></div>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold uppercase text-slate-400 tracking-wider">Prepaid Delivery Rate</p>
+          <p class="text-3xl font-black text-indigo-600 mt-2">99.16%</p>
+          <p class="text-xs text-slate-500 mt-1">Only 0.80% RTO (468 orders)</p>
+          <div class="w-full bg-slate-100 rounded-full h-1.5 mt-3">
+            <div class="bg-indigo-600 h-1.5 rounded-full" style="width: 99.16%"></div>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold uppercase text-slate-400 tracking-wider">COD Delivery Rate</p>
+          <p class="text-3xl font-black text-rose-600 mt-2">87.65%</p>
+          <p class="text-xs text-slate-500 mt-1">12.23% RTO (4,163 orders)</p>
+          <div class="w-full bg-slate-100 rounded-full h-1.5 mt-3">
+            <div class="bg-rose-500 h-1.5 rounded-full" style="width: 87.65%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Critical Alert: Concentration Risk & COD Return Skew -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-rose-50 border-l-4 border-rose-500 p-5 rounded-r-xl">
+          <div class="flex items-start">
+            <div class="flex-1">
+              <h3 class="text-sm font-bold text-rose-900 uppercase tracking-wide">Critical Vulnerability: Courier C9 Concentration</h3>
+              <p class="text-xs text-rose-800 mt-1 leading-relaxed">
+                Courier <strong>C9</strong> handles <strong>57,899 shipments (62.4% of total company volume)</strong> via Aggregator A3. Any local hub failure or operational disruption at C9 immediately halts over 60% of customer deliveries.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl">
+          <div class="flex items-start">
+            <div class="flex-1">
+              <h3 class="text-sm font-bold text-amber-900 uppercase tracking-wide">Operational Finding: COD Drives 89.9% of All RTOs</h3>
+              <p class="text-xs text-amber-800 mt-1 leading-relaxed">
+                Out of 4,631 total returns, <strong>4,163 are COD shipments</strong>. Prepaid delivers at 99.16% while COD suffers an <strong>RTO rate of 12.23%</strong>. RTO is fundamentally a payment-mode friction problem, not a transit delay problem.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm lg:col-span-2">
+          <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wide mb-4">Daily Volume & Delivery Performance (Jan 2026)</h3>
+          <div class="h-64">
+            <canvas id="chart-daily-trend"></canvas>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wide mb-4">Status Distribution</h3>
+          <div class="h-64 flex items-center justify-center">
+            <canvas id="chart-status-pie"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: COST-TO-SERVE -->
+    <div id="tab-cost" class="tab-pane space-y-6 hidden">
+      <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 rounded-2xl shadow-lg">
+        <span class="inline-block px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-brand-500 text-white mb-2">Question 2 Defense</span>
+        <h2 class="text-2xl font-bold">Cost-to-Serve & Financial Leakage</h2>
+        <p class="text-slate-300 text-sm max-w-2xl mt-1">Applying the contracted Rate Card schedules per Airway Bill reveals a ₹5.95 Lakhs/month overpayment driven by misallocation to Aggregator A3.</p>
+      </div>
+
+      <!-- Spend KPI Scorecards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold uppercase text-slate-400 tracking-wider">Total Monthly Spend</p>
+          <p class="text-3xl font-black text-slate-900 mt-2">₹64.82L</p>
+          <p class="text-xs text-slate-500 mt-1">₹64,81,773 Total Freight & COD</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold uppercase text-slate-400 tracking-wider">Base Freight Spend</p>
+          <p class="text-3xl font-black text-indigo-600 mt-2">₹56.16L</p>
+          <p class="text-xs text-slate-500 mt-1">86.6% of Total Logistics Cost</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold uppercase text-slate-400 tracking-wider">COD Surcharges</p>
+          <p class="text-3xl font-black text-amber-600 mt-2">₹8.65L</p>
+          <p class="text-xs text-slate-500 mt-1">13.4% of Total Spend (₹25/₹28 flat)</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold uppercase text-slate-400 tracking-wider">Cost per Delivered Order</p>
+          <p class="text-3xl font-black text-brand-600 mt-2">₹73.65</p>
+          <p class="text-xs text-slate-500 mt-1">Baseline AWB Cost: ₹69.92</p>
+        </div>
+      </div>
+
+      <!-- The Big Finding: Leakage Spotlight -->
+      <div class="bg-amber-50 border border-amber-200 p-6 rounded-2xl shadow-sm">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div>
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-amber-200 text-amber-900 uppercase">Core Analytical Revelation</span>
+            <h3 class="text-xl font-bold text-amber-950 mt-1">₹5,95,193 / Month Overpayment on Aggregator A3</h3>
+            <p class="text-sm text-amber-800 mt-1 max-w-3xl">
+              Aggregator A3 handles <strong>73.0% of all volume (67,642 orders)</strong>, consuming <strong>₹50.25 Lakhs</strong>. Across Zones A, B, C, and E, A3 is your most expensive partner. If those exact orders were billed under A1's rates, BlissClub would spend <strong>₹44.30 Lakhs</strong> — unlocking <strong>₹71.4 Lakhs in annualized cost savings</strong>.
+            </p>
+          </div>
+          <div class="bg-white px-5 py-3 rounded-xl border border-amber-300 shadow-sm text-center min-w-[200px]">
+            <p class="text-xs text-slate-500 uppercase font-bold">Annualized Leakage</p>
+            <p class="text-2xl font-black text-amber-600 mt-0.5">₹71.4 Lakhs</p>
+            <p class="text-xs text-emerald-600 font-semibold mt-0.5">11.84% Cost Reduction</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rate Card Comparison Table -->
+      <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center">
+          <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wide">Contracted Rate Card Benchmark (First 500g Base Rate)</h3>
+          <span class="text-xs text-slate-400">*Billed per AWB with 500g slab rounding</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 uppercase font-semibold border-b border-slate-100">
+              <tr>
+                <th class="px-6 py-3">Zone Classification</th>
+                <th class="px-6 py-3">A1 Rate (Base)</th>
+                <th class="px-6 py-3">A2 Rate (Base)</th>
+                <th class="px-6 py-3">A3 Rate (Base)</th>
+                <th class="px-6 py-3">A3 Premium vs Lowest</th>
+                <th class="px-6 py-3">Volume Share</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-700">
+              <tr class="hover:bg-slate-50/50">
+                <td class="px-6 py-3 font-semibold text-slate-900">Zone A (Intra-City)</td>
+                <td class="px-6 py-3 text-emerald-600 font-bold">₹19.0</td>
+                <td class="px-6 py-3">₹20.2</td>
+                <td class="px-6 py-3 text-rose-600 font-semibold">₹24.0</td>
+                <td class="px-6 py-3 text-rose-600 font-bold">+₹5.0 (+26.3%)</td>
+                <td class="px-6 py-3 font-semibold">33.3% (30,853 orders)</td>
+              </tr>
+              <tr class="hover:bg-slate-50/50">
+                <td class="px-6 py-3 font-semibold text-slate-900">Zone B (Regional)</td>
+                <td class="px-6 py-3 text-emerald-600 font-bold">₹22.0</td>
+                <td class="px-6 py-3">₹23.5</td>
+                <td class="px-6 py-3 text-rose-600 font-semibold">₹27.0</td>
+                <td class="px-6 py-3 text-rose-600 font-bold">+₹5.0 (+22.7%)</td>
+                <td class="px-6 py-3 font-semibold">19.2% (17,790 orders)</td>
+              </tr>
+              <tr class="hover:bg-slate-50/50">
+                <td class="px-6 py-3 font-semibold text-slate-900">Zone C (Metro-to-Metro)</td>
+                <td class="px-6 py-3 text-emerald-600 font-bold">₹32.0</td>
+                <td class="px-6 py-3">₹32.5</td>
+                <td class="px-6 py-3 text-rose-600 font-semibold">₹33.0</td>
+                <td class="px-6 py-3 text-rose-600 font-bold">+₹1.0 (+3.1%)</td>
+                <td class="px-6 py-3 font-semibold">26.5% (24,595 orders)</td>
+              </tr>
+              <tr class="hover:bg-slate-50/50">
+                <td class="px-6 py-3 font-semibold text-slate-900">Zone D (Rest of India)</td>
+                <td class="px-6 py-3 text-emerald-600 font-bold">₹38.0</td>
+                <td class="px-6 py-3">₹39.2</td>
+                <td class="px-6 py-3 text-rose-600 font-semibold">₹39.0</td>
+                <td class="px-6 py-3 text-rose-600 font-bold">+₹1.0 (+2.6%)</td>
+                <td class="px-6 py-3 font-semibold">19.1% (17,748 orders)</td>
+              </tr>
+              <tr class="hover:bg-slate-50/50">
+                <td class="px-6 py-3 font-semibold text-slate-900">Zone E (Special / NE / J&K)</td>
+                <td class="px-6 py-3 text-emerald-600 font-bold">₹41.0</td>
+                <td class="px-6 py-3">₹44.8</td>
+                <td class="px-6 py-3 text-rose-600 font-semibold">₹56.0</td>
+                <td class="px-6 py-3 text-rose-600 font-bold">+₹15.0 (+36.6%)</td>
+                <td class="px-6 py-3 font-semibold">1.8% (1,645 orders)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: ORDER MIX & GEOGRAPHIC INTELLIGENCE -->
+    <div id="tab-geo" class="tab-pane space-y-6 hidden">
+      <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 rounded-2xl shadow-lg">
+        <span class="inline-block px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-brand-500 text-white mb-2">Question 3 Defense</span>
+        <h2 class="text-2xl font-bold">Order Mix & Geographic Intelligence</h2>
+        <p class="text-slate-300 text-sm max-w-2xl mt-1">Demand is intensely clustered in 5 key states. Product catalog weight profiles and payment mix dictate operational prioritization.</p>
+      </div>
+
+      <!-- Top 5 States Pareto Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold text-slate-400 uppercase">#1 Maharashtra</p>
+          <p class="text-2xl font-black text-slate-900 mt-1">24,650</p>
+          <p class="text-xs text-slate-500">26.59% Share • ₹15.7L Spend</p>
+          <p class="text-xs text-emerald-600 font-semibold mt-1">96.0% Delivered</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold text-slate-400 uppercase">#2 Karnataka</p>
+          <p class="text-2xl font-black text-slate-900 mt-1">12,731</p>
+          <p class="text-xs text-slate-500">13.73% Share • ₹7.5L Spend</p>
+          <p class="text-xs text-emerald-600 font-semibold mt-1">96.8% Delivered</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold text-slate-400 uppercase">#3 Delhi</p>
+          <p class="text-2xl font-black text-slate-900 mt-1">9,413</p>
+          <p class="text-xs text-slate-500">10.15% Share • ₹6.5L Spend</p>
+          <p class="text-xs text-emerald-600 font-semibold mt-1">95.4% Delivered</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold text-slate-400 uppercase">#4 Gujarat</p>
+          <p class="text-2xl font-black text-slate-900 mt-1">7,650</p>
+          <p class="text-xs text-slate-500">8.25% Share • ₹5.6L Spend</p>
+          <p class="text-xs text-emerald-600 font-semibold mt-1">96.0% Delivered</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <p class="text-xs font-bold text-slate-400 uppercase">#5 Uttar Pradesh</p>
+          <p class="text-2xl font-black text-slate-900 mt-1">6,242</p>
+          <p class="text-xs text-slate-500">6.73% Share • ₹4.8L Spend</p>
+          <p class="text-xs text-amber-600 font-semibold mt-1">91.7% Deliv (7.9% RTO)</p>
+        </div>
+      </div>
+
+      <!-- State Table and Zone Composition -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm lg:col-span-2">
+          <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wide mb-4">Top 10 State Performance & COD RTO Correlation</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 text-slate-500 uppercase font-semibold border-b border-slate-100">
+                <tr>
+                  <th class="py-2.5 px-3">State</th>
+                  <th class="py-2.5 px-3">Shipments</th>
+                  <th class="py-2.5 px-3">Vol Share</th>
+                  <th class="py-2.5 px-3">COD Share</th>
+                  <th class="py-2.5 px-3">Delivery %</th>
+                  <th class="py-2.5 px-3">RTO %</th>
+                </tr>
+              </thead>
+              <tbody id="table-geo-body" class="divide-y divide-slate-100 text-slate-700">
+                <!-- Dynamically populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wide mb-3">Weight Slab Composition</h3>
+            <p class="text-xs text-slate-500 mb-4 leading-relaxed">
+              <strong>98.8% of shipments are under 0.5 kg</strong>. Because apparel items (leggings, activewear) fall within the 1st slab, shipping costs are governed almost entirely by base zone rates rather than additional weight increments.
+            </p>
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-2">
+              <div class="flex justify-between text-xs">
+                <span class="font-medium text-slate-600">≤ 0.5 kg (First Slab)</span>
+                <span class="font-bold text-slate-900">91,595 (98.8%)</span>
+              </div>
+              <div class="w-full bg-slate-200 rounded-full h-2">
+                <div class="bg-brand-600 h-2 rounded-full" style="width: 98.8%"></div>
+              </div>
+              <div class="flex justify-between text-xs pt-1">
+                <span class="font-medium text-slate-600">&gt; 0.5 kg (Multi-Slab)</span>
+                <span class="font-bold text-slate-900">1,112 (1.2%)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-100">
+            <h4 class="text-xs font-bold text-slate-800 uppercase mb-2">Regional Hub Opportunity</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              <strong>Maharashtra + Gujarat</strong> represent <strong>34.8% of national demand</strong>. Setting up or utilizing a Western Regional Fulfillment Center (RFC) converts Zone C/D national shipments into Zone A/B local deliveries, saving ₹10–₹15 per parcel.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: COURIER STRATEGY & SIMULATOR -->
+    <div id="tab-courier" class="tab-pane space-y-6 hidden">
+      <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 rounded-2xl shadow-lg">
+        <span class="inline-block px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-brand-500 text-white mb-2">Question 4 Defense</span>
+        <h2 class="text-2xl font-bold">Courier Strategy & Live Reallocation Simulator</h2>
+        <p class="text-slate-300 text-sm max-w-2xl mt-1">Benchmark partner unit economics and test what-if volume reallocation scenarios using the interactive model below.</p>
+      </div>
+
+      <!-- Partner Scorecard Overview -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <div class="flex justify-between items-start">
+            <p class="text-xs font-bold text-slate-400 uppercase">Aggregator A3 (Dominant)</p>
+            <span class="text-xs bg-rose-100 text-rose-800 font-bold px-2 py-0.5 rounded">High Cost</span>
+          </div>
+          <p class="text-2xl font-black text-slate-900 mt-2">67,642 <span class="text-xs font-normal text-slate-500">(73.0% Vol)</span></p>
+          <div class="mt-3 space-y-1 text-xs text-slate-600">
+            <div class="flex justify-between"><span>Delivered Rate:</span><span class="font-bold text-slate-800">95.0%</span></div>
+            <div class="flex justify-between"><span>Avg Cost / AWB:</span><span class="font-bold text-rose-600">₹74.29</span></div>
+            <div class="flex justify-between"><span>Avg Transit TAT:</span><span class="font-bold text-slate-800">2.18 days</span></div>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <div class="flex justify-between items-start">
+            <p class="text-xs font-bold text-slate-400 uppercase">Aggregator A1 (Cheapest)</p>
+            <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">Best Price</span>
+          </div>
+          <p class="text-2xl font-black text-slate-900 mt-2">12,989 <span class="text-xs font-normal text-slate-500">(14.0% Vol)</span></p>
+          <div class="mt-3 space-y-1 text-xs text-slate-600">
+            <div class="flex justify-between"><span>Delivered Rate:</span><span class="font-bold text-slate-800">94.7%</span></div>
+            <div class="flex justify-between"><span>Avg Cost / AWB:</span><span class="font-bold text-emerald-600">₹53.11</span></div>
+            <div class="flex justify-between"><span>Avg Transit TAT:</span><span class="font-bold text-slate-800">2.43 days</span></div>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+          <div class="flex justify-between items-start">
+            <p class="text-xs font-bold text-slate-400 uppercase">Aggregator A2 (Balanced)</p>
+            <span class="text-xs bg-indigo-100 text-indigo-800 font-bold px-2 py-0.5 rounded">Balanced</span>
+          </div>
+          <p class="text-2xl font-black text-slate-900 mt-2">12,076 <span class="text-xs font-normal text-slate-500">(13.0% Vol)</span></p>
+          <div class="mt-3 space-y-1 text-xs text-slate-600">
+            <div class="flex justify-between"><span>Delivered Rate:</span><span class="font-bold text-slate-800">95.0%</span></div>
+            <div class="flex justify-between"><span>Avg Cost / AWB:</span><span class="font-bold text-indigo-600">₹63.50</span></div>
+            <div class="flex justify-between"><span>Avg Transit TAT:</span><span class="font-bold text-slate-800">2.44 days</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIVE WHAT-IF SIMULATOR -->
+      <div class="bg-white p-6 rounded-2xl border-2 border-brand-500 shadow-md">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-5 border-b border-slate-100 gap-4">
+          <div>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-brand-100 text-brand-800 uppercase">
+              Interactive Decision Tool
+            </span>
+            <h3 class="text-lg font-bold text-slate-900 mt-1">Zone A & B Volume Reallocation Simulator</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Simulate moving volume from high-cost A3 to lower-cost A1 and A2 across Zone A (Intra-city) and Zone B (Regional).</p>
+          </div>
+          <div class="text-right">
+            <span id="sim-risk-badge" class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+              Risk: Low (Safe Threshold)
+            </span>
+          </div>
+        </div>
+
+        <div class="py-6">
+          <div class="flex justify-between items-center mb-2">
+            <label class="text-sm font-bold text-slate-700">Reallocation Percentage from A3 to A1/A2:</label>
+            <span id="slider-val" class="text-lg font-black text-brand-600">25% Shift</span>
+          </div>
+          <input type="range" id="sim-slider" min="0" max="50" step="5" value="25" class="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-brand-600" oninput="updateSimulation(this.value)">
+          <div class="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
+            <span>0% (Status Quo)</span>
+            <span>10% Pilot</span>
+            <span>25% Recommended</span>
+            <span>35% Aggressive</span>
+            <span>50% Max Safe Limit</span>
+          </div>
+        </div>
+
+        <!-- Simulation Outputs -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-slate-50 p-5 rounded-xl border border-slate-100">
+          <div>
+            <p class="text-xs font-medium text-slate-500">Reallocated Orders</p>
+            <p class="text-2xl font-black text-slate-900 mt-0.5" id="sim-realloc-orders">7,951</p>
+            <p class="text-[11px] text-slate-400">~265 orders/day shifted</p>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-slate-500">Monthly Cost Savings</p>
+            <p class="text-2xl font-black text-emerald-600 mt-0.5" id="sim-monthly-savings">₹55,864</p>
+            <p class="text-[11px] text-emerald-600 font-semibold" id="sim-savings-pct">0.86% Net Spend Drop</p>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-slate-500">Annualized Savings</p>
+            <p class="text-2xl font-black text-indigo-600 mt-0.5" id="sim-annual-savings">₹6.70 Lakhs</p>
+            <p class="text-[11px] text-slate-400">Recurring annualized profit</p>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-slate-500">New Partner Volumes</p>
+            <p class="text-xs text-slate-700 mt-1" id="sim-volumes">A1: 16.9k | A2: 16.0k | A3: 59.7k</p>
+            <p class="text-[11px] text-slate-400">A3 volume share: 64.4%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: PROCESS EFFICIENCY & SLA FUNNEL -->
+    <div id="tab-sla" class="tab-pane space-y-6 hidden">
+      <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 rounded-2xl shadow-lg">
+        <span class="inline-block px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-brand-500 text-white mb-2">Question 5 Defense</span>
+        <h2 class="text-2xl font-bold">Process Efficiency & SLA Funnel Analysis</h2>
+        <p class="text-slate-300 text-sm max-w-2xl mt-1">Analyzing the 4 timestamps isolates the exact bottleneck: internal warehouse manifests quickly, but parcels sit at the dock 16 hours awaiting courier pickup.</p>
+      </div>
+
+      <!-- SLA Waterfall Visual -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Stage 1 -->
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-xs font-bold text-brand-600 uppercase">Stage 1: Internal WMS</span>
+            <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">Healthy</span>
+          </div>
+          <h4 class="text-base font-bold text-slate-900">Order to AWB Assignment</h4>
+          <p class="text-xs text-slate-500 mt-0.5">Order Placement ➔ Manifest & Packing</p>
+          <div class="mt-4 pt-3 border-t border-slate-100">
+            <p class="text-2xl font-black text-slate-900">5.95 hrs</p>
+            <p class="text-xs text-slate-500">Median: 0.79 hrs • P90: 16.25 hrs</p>
+            <p class="text-xs text-emerald-600 font-semibold mt-1">18.3% Breach of 12h SLA</p>
+          </div>
+        </div>
+
+        <!-- Stage 2 (The Bottleneck) -->
+        <div class="bg-white p-5 rounded-xl border-2 border-rose-500 shadow-sm relative overflow-hidden">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-xs font-bold text-rose-600 uppercase">Stage 2: Courier Handover</span>
+            <span class="text-xs bg-rose-100 text-rose-800 font-bold px-2 py-0.5 rounded">Core Bottleneck</span>
+          </div>
+          <h4 class="text-base font-bold text-slate-900">AWB to Physical Pickup</h4>
+          <p class="text-xs text-slate-500 mt-0.5">Manifested ➔ Carrier Dock Pickup Scan</p>
+          <div class="mt-4 pt-3 border-t border-slate-100">
+            <p class="text-2xl font-black text-rose-600">15.98 hrs</p>
+            <p class="text-xs text-slate-500">Median: 17.17 hrs • P90: 27.83 hrs</p>
+            <p class="text-xs text-rose-600 font-bold mt-1">55.1% Breach of 12h SLA</p>
+          </div>
+        </div>
+
+        <!-- Stage 3 -->
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-xs font-bold text-brand-600 uppercase">Stage 3: Linehaul Transit</span>
+            <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">Healthy</span>
+          </div>
+          <h4 class="text-base font-bold text-slate-900">Pickup to Delivered Scan</h4>
+          <p class="text-xs text-slate-500 mt-0.5">In-Transit Movement ➔ Doorstep</p>
+          <div class="mt-4 pt-3 border-t border-slate-100">
+            <p class="text-2xl font-black text-slate-900">2.25 days</p>
+            <p class="text-xs text-slate-500">Median: 1.94 days • P90: 3.83 days</p>
+            <p class="text-xs text-emerald-600 font-semibold mt-1">6.2% Breach of 4-day SLA</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enforceable SLA Policy Table -->
+      <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
+        <h3 class="text-base font-bold text-slate-900 mb-2">Enforceable SLA Contract Structure for BlissClub</h3>
+        <p class="text-xs text-slate-500 mb-4">Holding internal warehouse shifts and external courier dispatchers accountable with strict financial consequences.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-2">
+            <p class="font-bold text-slate-900 uppercase">1. Warehouse Dispatch Cutoff</p>
+            <p class="text-slate-600">Orders placed before <strong>14:00</strong> must manifest by <strong>16:00</strong>.</p>
+            <p class="text-slate-500"><strong>Owner:</strong> Warehouse Shift Manager</p>
+            <p class="text-slate-700 font-medium"><strong>SLA Target:</strong> ≤ 12 Hours (95% adherence)</p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-2">
+            <p class="font-bold text-slate-900 uppercase">2. Courier Pickup Window</p>
+            <p class="text-slate-600">Manifested cages must be scanned and loaded by <strong>19:00 same-day</strong>.</p>
+            <p class="text-slate-500"><strong>Owner:</strong> Courier Dispatch Lead</p>
+            <p class="text-rose-600 font-medium"><strong>Penalty:</strong> ₹10 per parcel credit on missed pickup windows</p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-2">
+            <p class="font-bold text-slate-900 uppercase">3. Transit Zone SLAs</p>
+            <p class="text-slate-600">Zone A: 24h | Zone B: 48h | Zone C/D: 72–96h | Zone E: 120h.</p>
+            <p class="text-slate-500"><strong>Owner:</strong> Linehaul Carrier Operations</p>
+            <p class="text-rose-600 font-medium"><strong>Penalty:</strong> 25% freight credit on parcels breaching transit SLA</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 6: 90-DAY ACTION AGENDA -->
+    <div id="tab-agenda" class="tab-pane space-y-6 hidden">
+      <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 rounded-2xl shadow-lg">
+        <span class="inline-block px-2.5 py-0.5 rounded text-xs font-bold uppercase tracking-wider bg-brand-500 text-white mb-2">Question 6 Defense</span>
+        <h2 class="text-2xl font-bold">The 90-Day Operational Action Agenda</h2>
+        <p class="text-slate-300 text-sm max-w-2xl mt-1">A disciplined 30-60-90 day execution roadmap delivering ₹40L+ annualized savings, cutting 18h off Click-to-Deliver TAT, and reducing RTO by 1.0%.</p>
+      </div>
+
+      <!-- Roadmap Phases -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Phase 1 -->
+        <div class="bg-white p-6 rounded-xl border-t-4 border-emerald-500 border-x border-b border-slate-200 shadow-sm space-y-3">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded uppercase">Days 1 – 30</span>
+            <span class="text-xs text-slate-400 font-medium">Quick Wins</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Stop Financial Leakage & Enforce Dock Handover</h3>
+          <ul class="text-xs text-slate-600 space-y-2 pt-1">
+            <li class="flex items-start">
+              <span class="text-emerald-500 mr-2 font-bold">✓</span>
+              <span><strong>Pilot Zone A/B Shift:</strong> Reallocate 25% volume from A3 to A1 & A2 (Immediate ₹55k/mo savings).</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-emerald-500 mr-2 font-bold">✓</span>
+              <span><strong>14:00 Dock Cut-off:</strong> Mandate pickup vans arrive by 18:30, eliminating the 16-hour handover lag.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-emerald-500 mr-2 font-bold">✓</span>
+              <span><strong>Fix Single Carrier Risk:</strong> Cap Courier C9 volume at 50% max allocation.</span>
+            </li>
+          </ul>
+          <div class="bg-emerald-50 p-3 rounded-lg text-[11px] text-emerald-900 font-semibold mt-3">
+            Day 30 Target: Handover TAT &lt; 10 hrs • Savings: ₹55k/mo
+          </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="bg-white p-6 rounded-xl border-t-4 border-indigo-500 border-x border-b border-slate-200 shadow-sm space-y-3">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-bold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded uppercase">Days 31 – 60</span>
+            <span class="text-xs text-slate-400 font-medium">RTO & Control</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">COD Prepayment Nudge & Automated WhatsApp NDR</h3>
+          <ul class="text-xs text-slate-600 space-y-2 pt-1">
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2 font-bold">✓</span>
+              <span><strong>Checkout UPI Incentive:</strong> Nudge COD customers with ₹30–₹50 instant prepaid discount to drop COD share to &lt;30%.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2 font-bold">✓</span>
+              <span><strong>Automated WhatsApp NDR:</strong> Trigger instant confirmation on failed attempt #1 to reschedule delivery.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2 font-bold">✓</span>
+              <span><strong>Weekly Carrier SLA Reviews:</strong> Institute 25% penalty credits for transit SLA breaches.</span>
+            </li>
+          </ul>
+          <div class="bg-indigo-50 p-3 rounded-lg text-[11px] text-indigo-900 font-semibold mt-3">
+            Day 60 Target: COD RTO down from 12.2% to 10.0%
+          </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="bg-white p-6 rounded-xl border-t-4 border-brand-500 border-x border-b border-slate-200 shadow-sm space-y-3">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-bold text-brand-700 bg-brand-100 px-2 py-0.5 rounded uppercase">Days 61 – 90</span>
+            <span class="text-xs text-slate-400 font-medium">Structural Scale</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Direct Carrier RFP & Dynamic Pincode Routing</h3>
+          <ul class="text-xs text-slate-600 space-y-2 pt-1">
+            <li class="flex items-start">
+              <span class="text-brand-500 mr-2 font-bold">✓</span>
+              <span><strong>Direct Carrier RFP:</strong> Negotiate direct contracts for top 3 states (MH, KA, DL = 50%+ volume), cutting aggregator margin by 12%.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-brand-500 mr-2 font-bold">✓</span>
+              <span><strong>Dynamic Pincode Routing:</strong> Automate allocation based on live carrier delivery performance per 3-digit pincode.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-brand-500 mr-2 font-bold">✓</span>
+              <span><strong>Western RFC Evaluation:</strong> Model a Mumbai/Bhiwandi warehouse to serve MH/GJ volume locally.</span>
+            </li>
+          </ul>
+          <div class="bg-brand-50 p-3 rounded-lg text-[11px] text-brand-900 font-semibold mt-3">
+            Day 90 Target: 10% lower cost/AWB • Overall RTO &lt; 4.0%
+          </div>
+        </div>
+      </div>
+
+      <!-- Trap Options vs Senior Leadership Comparison Table -->
+      <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
+        <h3 class="text-base font-bold text-slate-900 mb-3">Interview Defense: Avoiding Junior Operations Traps</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 uppercase font-semibold border-b border-slate-100">
+              <tr>
+                <th class="py-2.5 px-3">Flawed "Trap" Approach</th>
+                <th class="py-2.5 px-3">Why It Fails in Reality</th>
+                <th class="py-2.5 px-3">Your Senior Operational Stance</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-700">
+              <tr class="hover:bg-slate-50/50">
+                <td class="py-3 px-3 font-semibold text-rose-700">"Immediately shift 100% of volume from A3 to A1"</td>
+                <td class="py-3 px-3 text-slate-500">Overwhelms A1's pickup fleet (12k to 80k volume spike), crashes warehouse dock, and blows out delivery times.</td>
+                <td class="py-3 px-3 text-emerald-700 font-semibold">Phased 25% reallocation in Zone A/B first, capping daily carrier allocation and monitoring pickup scan times.</td>
+              </tr>
+              <tr class="hover:bg-slate-50/50">
+                <td class="py-3 px-3 font-semibold text-rose-700">"Disable COD completely to eliminate RTO"</td>
+                <td class="py-3 px-3 text-slate-500">Destroys 36.7% of total sales (34,000 orders), collapsing company revenue and marketing efficiency.</td>
+                <td class="py-3 px-3 text-emerald-700 font-semibold">Convert COD via checkout UPI prepayment discounts, and protect high-risk pin codes with WhatsApp OTP.</td>
+              </tr>
+              <tr class="hover:bg-slate-50/50">
+                <td class="py-3 px-3 font-semibold text-rose-700">"Build an in-house AI routing engine from scratch"</td>
+                <td class="py-3 px-3 text-slate-500">Takes 6–9 months of engineering backlog; delivers zero cost savings in the critical first 90 days.</td>
+                <td class="py-3 px-3 text-emerald-700 font-semibold">Execute immediate operational levers in Month 1 (cutoff times, rate card re-routing), saving money from Day 1.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>BlissClub Last Mile Operations Intelligence Suite • Prepared for Operations Leadership Evaluation</p>
+      <p class="mt-1 text-slate-400">Audited against 92,707 transactional records & Rate Cards • Hosted on GitHub Pages</p>
+    </div>
+  </footer>
+
+  <!-- Application Logic & Data Binding -->
+  <script>
+    let appData = null;
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('tab-active'));
+      
+      const targetPane = document.getElementById(tabId);
+      if (targetPane) targetPane.classList.remove('hidden');
+
+      const btnId = 'nav-' + tabId.replace('tab-', '');
+      const targetBtn = document.getElementById(btnId);
+      if (targetBtn) targetBtn.classList.add('tab-active');
+    }
+
+    async function loadData() {
+      try {
+        const response = await fetch('data/ops_data.json');
+        appData = await response.json();
+        initDashboard();
+      } catch (err) {
+        console.warn('Could not load data/ops_data.json dynamically, fallback mode active:', err);
+      }
+    }
+
+    function initDashboard() {
+      if (!appData) return;
+
+      // Populate Top 10 States Table
+      const geoBody = document.getElementById('table-geo-body');
+      if (geoBody && appData.geographic_intelligence) {
+        geoBody.innerHTML = '';
+        appData.geographic_intelligence.slice(0, 10).forEach((item, idx) => {
+          const row = document.createElement('tr');
+          row.className = 'hover:bg-slate-50/50';
+          row.innerHTML = `
+            <td class="py-2.5 px-3 font-semibold text-slate-900">${idx + 1}. ${item.state}</td>
+            <td class="py-2.5 px-3 font-bold">${item.shipments.toLocaleString()}</td>
+            <td class="py-2.5 px-3">${item.share_pct}%</td>
+            <td class="py-2.5 px-3 font-medium text-amber-700">${item.cod_share_pct}%</td>
+            <td class="py-2.5 px-3 text-emerald-600 font-semibold">${item.delivered_rate}%</td>
+            <td class="py-2.5 px-3 text-rose-600 font-bold">${item.rto_rate}%</td>
+          `;
+          geoBody.appendChild(row);
+        });
+      }
+
+      // Initialize Charts
+      renderDailyChart();
+      renderStatusPie();
+    }
+
+    function renderDailyChart() {
+      const ctx = document.getElementById('chart-daily-trend');
+      if (!ctx || !appData) return;
+
+      const labels = appData.daily_trend.map(d => d.date.slice(5));
+      const orders = appData.daily_trend.map(d => d.orders);
+      const rto = appData.daily_trend.map(d => d.rto);
+
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Total Orders',
+              data: orders,
+              borderColor: '#ec4899',
+              backgroundColor: 'rgba(236, 72, 153, 0.1)',
+              tension: 0.3,
+              fill: true
+            },
+            {
+              label: 'RTO Orders',
+              data: rto,
+              borderColor: '#f43f5e',
+              borderDash: [4, 4],
+              tension: 0.3,
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'top' } },
+          scales: {
+            y: { beginAtZero: true, grid: { color: '#f1f5f9' } },
+            x: { grid: { display: false } }
+          }
+        }
+      });
+    }
+
+    function renderStatusPie() {
+      const ctx = document.getElementById('chart-status-pie');
+      if (!ctx) return;
+
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Delivered', 'RTO', 'Lost', 'Not Shipped'],
+          datasets: [{
+            data: [88013, 4631, 21, 42],
+            backgroundColor: ['#10b981', '#f59e0b', '#ef4444', '#94a3b8']
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom' }
+          }
+        }
+      });
+    }
+
+    function updateSimulation(val) {
+      document.getElementById('slider-val').innerText = val + '% Shift';
+      
+      // Calculate dynamic numbers based on model formulas
+      const shift = parseFloat(val);
+      const candidateVolume = 31804; // Zone A+B volume on A3
+      const shifted = Math.round(candidateVolume * (shift / 100));
+      
+      // Average savings per shifted parcel in Zone A/B = ₹7.02
+      const monthlySavings = Math.round(shifted * 7.02);
+      const annualSavings = (monthlySavings * 12) / 100000;
+      const savingsPct = (monthlySavings / 6481773.2) * 100;
+
+      document.getElementById('sim-realloc-orders').innerText = shifted.toLocaleString();
+      document.getElementById('sim-monthly-savings').innerText = '₹' + monthlySavings.toLocaleString();
+      document.getElementById('sim-annual-savings').innerText = '₹' + annualSavings.toFixed(2) + ' Lakhs';
+      document.getElementById('sim-savings-pct').innerText = savingsPct.toFixed(2) + '% Net Spend Drop';
+
+      const a1Vol = Math.round(12989 + (shifted * 0.5));
+      const a2Vol = Math.round(12076 + (shifted * 0.5));
+      const a3Vol = Math.round(67642 - shifted);
+      document.getElementById('sim-volumes').innerText = `A1: ${(a1Vol/1000).toFixed(1)}k | A2: ${(a2Vol/1000).toFixed(1)}k | A3: ${(a3Vol/1000).toFixed(1)}k`;
+
+      const badge = document.getElementById('sim-risk-badge');
+      if (shift > 35) {
+        badge.className = 'inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800';
+        badge.innerText = 'Risk: Moderate (Requires Carrier Capacity Audit)';
+      } else {
+        badge.className = 'inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800';
+        badge.innerText = 'Risk: Low (Safe Operational Threshold)';
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      loadData();
+    });
+  </script>
+</body>
+</html>

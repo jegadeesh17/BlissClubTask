@@ -33,6 +33,7 @@ wheels/
 .coverage
 htmlcov/
 .tox/
+data/*.parquet
 
 # OS artifacts
 .DS_Store
@@ -42,3 +43,4 @@ Thumbs.db
 .ui-review/
 .impeccable/review/
 .se-agents/
+
