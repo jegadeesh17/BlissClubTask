@@ -111,3 +111,4 @@ def test_simulator(sample_metrics_df):
     assert sim["annualized_savings"] == 60.0
     assert sim["partner_volumes"]["A1"] == 2
     assert sim["partner_volumes"]["A3"] == 1
+

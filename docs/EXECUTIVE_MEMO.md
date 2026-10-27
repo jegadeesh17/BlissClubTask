@@ -228,3 +228,4 @@ Target: ₹55k/mo savings; TAT -12h  Target: COD RTO 12.2% ➔ 10.0%    Target: 
 ---
 
 *This document, backed by the interactive decision dashboard at `docs/index.html` and verified Python analytics engine in `src/`, provides the complete strategic framework to defend BlissClub’s last-mile operations.*
+

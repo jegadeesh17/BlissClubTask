@@ -114,3 +114,4 @@ def simulate_reallocation(
         },
         "capacity_risk": capacity_risk,
     }
+

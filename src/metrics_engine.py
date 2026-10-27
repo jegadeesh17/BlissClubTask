@@ -183,3 +183,4 @@ def compute_partner_scorecards(df: pd.DataFrame) -> dict:
         "aggregators": scorecard_for_group("Courier Aggregator"),
         "couriers": scorecard_for_group("Courier"),
     }
+

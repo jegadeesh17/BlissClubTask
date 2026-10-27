@@ -22,3 +22,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Comprehensive, board-ready strategic defense paper (`docs/EXECUTIVE_MEMO.md`) answering all 6 assignment questions with hard numbers and trade-off analyses.
 - **Living Documentation:**
   - `docs/PROJECT_MENTAL_MODEL.md`, `docs/SPEC.md`, `docs/ARCHITECTURE.md`, `docs/DECISIONS.md`, `docs/TASKS.json`, `docs/WALKTHROUGH.md`.
+

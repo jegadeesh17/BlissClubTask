@@ -92,3 +92,4 @@ Then navigate to `http://localhost:8000`.
 
 For the complete, board-ready strategic defense paper answering all 6 assignment questions in detail, read:
 👉 **[`docs/EXECUTIVE_MEMO.md`](docs/EXECUTIVE_MEMO.md)**
+

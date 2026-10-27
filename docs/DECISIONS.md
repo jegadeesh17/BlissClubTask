@@ -36,3 +36,4 @@
   2. *Handover & Dispatch:* `AWB Assignment Time` $\rightarrow$ `Pickup Date` (SLA: $\le 12$h)
   3. *In-Transit & Last-Mile:* `Pickup Date` $\rightarrow$ `Delivered Date` (SLA: Zone A/B: 24–48h; Zone C/D: 48–96h; Zone E: 120h)
 - **Consequences:** Clear, distinct accountability preventing couriers and warehouse teams from blaming each other for overall lead time inflation.
+

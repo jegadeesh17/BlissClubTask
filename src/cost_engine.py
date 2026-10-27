@@ -173,3 +173,4 @@ def calculate_cost_leakage(df: pd.DataFrame, rate_card: dict = None) -> dict:
         "potential_savings_a2": round(savings_vs_a2, 2),
         "overpayment_pct_vs_a1": round((savings_vs_a1 / actual_a3_spend) * 100, 2),
     }
+

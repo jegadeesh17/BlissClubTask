@@ -95,3 +95,4 @@ def test_cost_leakage_logic():
     assert leakage["actual_a3_spend"] == 80.0
     assert leakage["spend_if_all_a1"] == 60.0
     assert leakage["max_potential_savings_a1"] == 20.0
+
