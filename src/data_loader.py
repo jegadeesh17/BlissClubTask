@@ -100,6 +100,11 @@ def load_shipments(file_path: Path | str = DEFAULT_DATA_PATH, force_reload: bool
         df[weight_col] = pd.to_numeric(df[weight_col], errors="coerce")
         df[weight_col] = df[weight_col].fillna(0.5)
 
+    # 8. Ensure string columns with mixed types (numeric vs alphanumeric) are strictly strings
+    for col in ["AWB", "Order ID", "Product", "SKU", "Pickup Point", "Shipping pincode"]:
+        if col in df.columns:
+            df[col] = df[col].astype(str).str.strip()
+
     # Save to parquet cache for future 0.05s loads
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     df.to_parquet(cache_path, index=False)

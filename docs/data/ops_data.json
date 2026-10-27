@@ -1,0 +1,858 @@
+{
+  "metadata": {
+    "generated_at": "2026-10-27T17:02:35.693511",
+    "total_records": 92707,
+    "date_range": {
+      "start": "2026-01-01 00:01:24",
+      "end": "2026-01-31 23:58:54"
+    }
+  },
+  "delivery_health": {
+    "total_shipments": 92707,
+    "delivered_count": 88013,
+    "delivered_rate": 94.94,
+    "rto_count": 4631,
+    "rto_rate": 5.0,
+    "lost_count": 21,
+    "lost_rate": 0.0227,
+    "not_shipped_count": 42,
+    "not_shipped_rate": 0.05,
+    "prepaid_health": {
+      "total": 58666,
+      "delivered_count": 58175,
+      "delivered_pct": 99.16,
+      "rto_count": 468,
+      "rto_pct": 0.8
+    },
+    "cod_health": {
+      "total": 34041,
+      "delivered_count": 29838,
+      "delivered_pct": 87.65,
+      "rto_count": 4163,
+      "rto_pct": 12.23
+    }
+  },
+  "cost_summary": {
+    "total_cost": 6481773.2,
+    "total_freight": 5616432.2,
+    "total_cod_fees": 865341.0,
+    "total_awbs": 92707,
+    "cost_per_awb": 69.92,
+    "cost_per_delivered_order": 73.65
+  },
+  "cost_leakage": {
+    "a3_total_shipments": 67642,
+    "actual_a3_spend": 5025189.0,
+    "spend_if_all_a1": 4429996.0,
+    "spend_if_all_a2": 4559639.4,
+    "max_potential_savings_a1": 595193.0,
+    "potential_savings_a2": 465549.6,
+    "overpayment_pct_vs_a1": 11.84
+  },
+  "sla_funnel": {
+    "stage_1_warehouse": {
+      "mean": 5.95,
+      "median": 0.79,
+      "p90": 16.25,
+      "breach_pct": 18.26,
+      "unit": "hours"
+    },
+    "stage_2_handover": {
+      "mean": 15.98,
+      "median": 17.17,
+      "p90": 27.83,
+      "breach_pct": 55.05,
+      "unit": "hours"
+    },
+    "stage_3_transit": {
+      "mean": 2.25,
+      "median": 1.94,
+      "p90": 3.83,
+      "breach_pct": 6.2,
+      "unit": "days"
+    },
+    "total_click_to_deliver": {
+      "mean": 3.17,
+      "median": 2.9,
+      "p90": 4.94,
+      "breach_pct": 9.17,
+      "unit": "days"
+    }
+  },
+  "zone_breakdown": [
+    {
+      "zone": "A",
+      "shipments": 30853,
+      "volume_share_pct": 33.28,
+      "delivered_rate": 96.12,
+      "rto_rate": 3.85,
+      "total_spend": 1547637.4,
+      "cost_per_awb": 50.16,
+      "avg_transit_days": 1.29
+    },
+    {
+      "zone": "B",
+      "shipments": 17790,
+      "volume_share_pct": 19.19,
+      "delivered_rate": 94.31,
+      "rto_rate": 5.56,
+      "total_spend": 1026871.4,
+      "cost_per_awb": 57.72,
+      "avg_transit_days": 2.42
+    },
+    {
+      "zone": "C",
+      "shipments": 24595,
+      "volume_share_pct": 26.53,
+      "delivered_rate": 95.85,
+      "rto_rate": 4.1,
+      "total_spend": 2025778.0,
+      "cost_per_awb": 82.37,
+      "avg_transit_days": 2.51
+    },
+    {
+      "zone": "D",
+      "shipments": 17749,
+      "volume_share_pct": 19.15,
+      "delivered_rate": 92.78,
+      "rto_rate": 7.12,
+      "total_spend": 1703643.2,
+      "cost_per_awb": 95.99,
+      "avg_transit_days": 3.24
+    },
+    {
+      "zone": "E",
+      "shipments": 1645,
+      "volume_share_pct": 1.77,
+      "delivered_rate": 89.85,
+      "rto_rate": 10.09,
+      "total_spend": 170949.2,
+      "cost_per_awb": 103.92,
+      "avg_transit_days": 4.07
+    },
+    {
+      "zone": "F",
+      "shipments": 75,
+      "volume_share_pct": 0.08,
+      "delivered_rate": 77.33,
+      "rto_rate": 22.67,
+      "total_spend": 6894.0,
+      "cost_per_awb": 91.92,
+      "avg_transit_days": 5.02
+    }
+  ],
+  "geographic_intelligence": [
+    {
+      "state": "Maharashtra",
+      "shipments": 24650,
+      "share_pct": 26.59,
+      "delivered_rate": 96.19,
+      "rto_rate": 3.79,
+      "cod_share_pct": 31.77,
+      "total_spend": 1651476.4
+    },
+    {
+      "state": "Karnataka",
+      "shipments": 12731,
+      "share_pct": 13.73,
+      "delivered_rate": 96.9,
+      "rto_rate": 3.08,
+      "cod_share_pct": 22.68,
+      "total_spend": 779003.0
+    },
+    {
+      "state": "Delhi",
+      "shipments": 9413,
+      "share_pct": 10.15,
+      "delivered_rate": 94.58,
+      "rto_rate": 5.36,
+      "cod_share_pct": 40.2,
+      "total_spend": 543308.8
+    },
+    {
+      "state": "Gujarat",
+      "shipments": 7650,
+      "share_pct": 8.25,
+      "delivered_rate": 95.29,
+      "rto_rate": 4.58,
+      "cod_share_pct": 46.2,
+      "total_spend": 632582.1
+    },
+    {
+      "state": "Uttar Pradesh",
+      "shipments": 6242,
+      "share_pct": 6.73,
+      "delivered_rate": 93.0,
+      "rto_rate": 6.94,
+      "cod_share_pct": 42.66,
+      "total_spend": 439730.1
+    },
+    {
+      "state": "Haryana",
+      "shipments": 5839,
+      "share_pct": 6.3,
+      "delivered_rate": 94.71,
+      "rto_rate": 5.29,
+      "cod_share_pct": 35.93,
+      "total_spend": 361542.2
+    },
+    {
+      "state": "Telangana",
+      "shipments": 4618,
+      "share_pct": 4.98,
+      "delivered_rate": 95.71,
+      "rto_rate": 4.27,
+      "cod_share_pct": 30.4,
+      "total_spend": 368464.0
+    },
+    {
+      "state": "Tamil Nadu",
+      "shipments": 3497,
+      "share_pct": 3.77,
+      "delivered_rate": 96.23,
+      "rto_rate": 3.77,
+      "cod_share_pct": 27.97,
+      "total_spend": 225230.8
+    },
+    {
+      "state": "Rajasthan",
+      "shipments": 3172,
+      "share_pct": 3.42,
+      "delivered_rate": 92.09,
+      "rto_rate": 7.69,
+      "cod_share_pct": 49.31,
+      "total_spend": 246131.5
+    },
+    {
+      "state": "Punjab",
+      "shipments": 2891,
+      "share_pct": 3.12,
+      "delivered_rate": 92.04,
+      "rto_rate": 7.85,
+      "cod_share_pct": 55.03,
+      "total_spend": 211362.8
+    },
+    {
+      "state": "West Bengal",
+      "shipments": 2376,
+      "share_pct": 2.56,
+      "delivered_rate": 94.4,
+      "rto_rate": 5.39,
+      "cod_share_pct": 44.36,
+      "total_spend": 183735.9
+    },
+    {
+      "state": "Madhya Pradesh",
+      "shipments": 1899,
+      "share_pct": 2.05,
+      "delivered_rate": 92.15,
+      "rto_rate": 7.58,
+      "cod_share_pct": 47.87,
+      "total_spend": 170481.4
+    },
+    {
+      "state": "Andhra Pradesh",
+      "shipments": 969,
+      "share_pct": 1.05,
+      "delivered_rate": 93.19,
+      "rto_rate": 6.81,
+      "cod_share_pct": 43.14,
+      "total_spend": 80464.6
+    },
+    {
+      "state": "Kerala",
+      "shipments": 808,
+      "share_pct": 0.87,
+      "delivered_rate": 93.32,
+      "rto_rate": 6.68,
+      "cod_share_pct": 25.0,
+      "total_spend": 60186.6
+    },
+    {
+      "state": "Uttarakhand",
+      "shipments": 803,
+      "share_pct": 0.87,
+      "delivered_rate": 91.53,
+      "rto_rate": 7.22,
+      "cod_share_pct": 46.58,
+      "total_spend": 55730.5
+    }
+  ],
+  "weight_distribution": {
+    "under_500g_count": 36655,
+    "under_500g_pct": 39.54,
+    "over_500g_count": 56052,
+    "over_500g_pct": 60.46
+  },
+  "partner_scorecards": {
+    "aggregators": [
+      {
+        "partner": "A3",
+        "shipments": 67642,
+        "volume_share_pct": 72.96,
+        "delivered_rate": 95.56,
+        "rto_rate": 4.4,
+        "total_spend": 5025189.0,
+        "cost_per_awb": 74.29,
+        "avg_transit_days": 2.25
+      },
+      {
+        "partner": "A1",
+        "shipments": 12989,
+        "volume_share_pct": 14.01,
+        "delivered_rate": 92.76,
+        "rto_rate": 6.99,
+        "total_spend": 910728.0,
+        "cost_per_awb": 70.12,
+        "avg_transit_days": 2.86
+      },
+      {
+        "partner": "A2",
+        "shipments": 12076,
+        "volume_share_pct": 13.03,
+        "delivered_rate": 93.79,
+        "rto_rate": 6.17,
+        "total_spend": 545856.2,
+        "cost_per_awb": 45.2,
+        "avg_transit_days": 1.58
+      }
+    ],
+    "couriers": [
+      {
+        "partner": "C9",
+        "shipments": 57899,
+        "volume_share_pct": 62.45,
+        "delivered_rate": 95.85,
+        "rto_rate": 4.11,
+        "total_spend": 4389237.0,
+        "cost_per_awb": 75.81,
+        "avg_transit_days": 2.18
+      },
+      {
+        "partner": "C1",
+        "shipments": 12989,
+        "volume_share_pct": 14.01,
+        "delivered_rate": 92.76,
+        "rto_rate": 6.99,
+        "total_spend": 910728.0,
+        "cost_per_awb": 70.12,
+        "avg_transit_days": 2.86
+      },
+      {
+        "partner": "C11",
+        "shipments": 5431,
+        "volume_share_pct": 5.86,
+        "delivered_rate": 93.7,
+        "rto_rate": 6.3,
+        "total_spend": 383536.0,
+        "cost_per_awb": 70.62,
+        "avg_transit_days": 2.93
+      },
+      {
+        "partner": "C2",
+        "shipments": 4686,
+        "volume_share_pct": 5.05,
+        "delivered_rate": 93.49,
+        "rto_rate": 6.49,
+        "total_spend": 151162.9,
+        "cost_per_awb": 32.26,
+        "avg_transit_days": 0.92
+      },
+      {
+        "partner": "C5",
+        "shipments": 3708,
+        "volume_share_pct": 4.0,
+        "delivered_rate": 92.61,
+        "rto_rate": 7.39,
+        "total_spend": 189644.4,
+        "cost_per_awb": 51.14,
+        "avg_transit_days": 1.96
+      },
+      {
+        "partner": "C10",
+        "shipments": 1966,
+        "volume_share_pct": 2.12,
+        "delivered_rate": 94.76,
+        "rto_rate": 5.19,
+        "total_spend": 82061.0,
+        "cost_per_awb": 41.74,
+        "avg_transit_days": 1.93
+      },
+      {
+        "partner": "C3",
+        "shipments": 1802,
+        "volume_share_pct": 1.94,
+        "delivered_rate": 97.17,
+        "rto_rate": 2.77,
+        "total_spend": 92920.8,
+        "cost_per_awb": 51.57,
+        "avg_transit_days": 1.78
+      },
+      {
+        "partner": "C6",
+        "shipments": 1320,
+        "volume_share_pct": 1.42,
+        "delivered_rate": 94.39,
+        "rto_rate": 5.38,
+        "total_spend": 75142.6,
+        "cost_per_awb": 56.93,
+        "avg_transit_days": 1.89
+      },
+      {
+        "partner": "C13",
+        "shipments": 758,
+        "volume_share_pct": 0.82,
+        "delivered_rate": 95.38,
+        "rto_rate": 4.62,
+        "total_spend": 80121.0,
+        "cost_per_awb": 105.7,
+        "avg_transit_days": 2.36
+      },
+      {
+        "partner": "C16",
+        "shipments": 663,
+        "volume_share_pct": 0.72,
+        "delivered_rate": 91.7,
+        "rto_rate": 7.99,
+        "total_spend": 23651.0,
+        "cost_per_awb": 35.67,
+        "avg_transit_days": 2.78
+      },
+      {
+        "partner": "C4",
+        "shipments": 518,
+        "volume_share_pct": 0.56,
+        "delivered_rate": 92.08,
+        "rto_rate": 7.92,
+        "total_spend": 34544.8,
+        "cost_per_awb": 66.69,
+        "avg_transit_days": 3.05
+      },
+      {
+        "partner": "C12",
+        "shipments": 505,
+        "volume_share_pct": 0.54,
+        "delivered_rate": 94.85,
+        "rto_rate": 5.15,
+        "total_spend": 18165.0,
+        "cost_per_awb": 35.97,
+        "avg_transit_days": 2.83
+      },
+      {
+        "partner": "C14",
+        "shipments": 409,
+        "volume_share_pct": 0.44,
+        "delivered_rate": 90.46,
+        "rto_rate": 9.54,
+        "total_spend": 47729.0,
+        "cost_per_awb": 116.7,
+        "avg_transit_days": 2.88
+      },
+      {
+        "partner": "C7",
+        "shipments": 38,
+        "volume_share_pct": 0.04,
+        "delivered_rate": 86.84,
+        "rto_rate": 13.16,
+        "total_spend": 2303.9,
+        "cost_per_awb": 60.63,
+        "avg_transit_days": 3.68
+      },
+      {
+        "partner": "C15",
+        "shipments": 9,
+        "volume_share_pct": 0.01,
+        "delivered_rate": 100.0,
+        "rto_rate": 0.0,
+        "total_spend": 557.0,
+        "cost_per_awb": 61.89,
+        "avg_transit_days": 4.85
+      },
+      {
+        "partner": "C8",
+        "shipments": 4,
+        "volume_share_pct": 0.0,
+        "delivered_rate": 100.0,
+        "rto_rate": 0.0,
+        "total_spend": 136.8,
+        "cost_per_awb": 34.2,
+        "avg_transit_days": 1.94
+      },
+      {
+        "partner": "C17",
+        "shipments": 2,
+        "volume_share_pct": 0.0,
+        "delivered_rate": 100.0,
+        "rto_rate": 0.0,
+        "total_spend": 132.0,
+        "cost_per_awb": 66.0,
+        "avg_transit_days": 2.04
+      }
+    ]
+  },
+  "reallocation_scenarios": {
+    "10": {
+      "shift_pct": 10,
+      "target_zones": [
+        "A",
+        "B"
+      ],
+      "reallocated_shipments": 3180,
+      "baseline_spend": 6481773.2,
+      "simulated_spend": 6459299.2,
+      "monthly_savings": 22474.0,
+      "annualized_savings": 269688.0,
+      "savings_pct": 0.35,
+      "partner_volumes": {
+        "A1": 14579,
+        "A2": 13666,
+        "A3": 64462
+      },
+      "volume_deltas": {
+        "A1": 1590,
+        "A2": 1590,
+        "A3": -3180
+      },
+      "capacity_risk": "LOW (Safe operational threshold)"
+    },
+    "20": {
+      "shift_pct": 20,
+      "target_zones": [
+        "A",
+        "B"
+      ],
+      "reallocated_shipments": 6361,
+      "baseline_spend": 6481773.2,
+      "simulated_spend": 6436371.9,
+      "monthly_savings": 45401.3,
+      "annualized_savings": 544815.6,
+      "savings_pct": 0.7,
+      "partner_volumes": {
+        "A1": 16169,
+        "A2": 15257,
+        "A3": 61281
+      },
+      "volume_deltas": {
+        "A1": 3180,
+        "A2": 3181,
+        "A3": -6361
+      },
+      "capacity_risk": "LOW (Safe operational threshold)"
+    },
+    "25": {
+      "shift_pct": 25,
+      "target_zones": [
+        "A",
+        "B"
+      ],
+      "reallocated_shipments": 7951,
+      "baseline_spend": 6481773.2,
+      "simulated_spend": 6425909.1,
+      "monthly_savings": 55864.1,
+      "annualized_savings": 670369.2,
+      "savings_pct": 0.86,
+      "partner_volumes": {
+        "A1": 16964,
+        "A2": 16052,
+        "A3": 59691
+      },
+      "volume_deltas": {
+        "A1": 3975,
+        "A2": 3976,
+        "A3": -7951
+      },
+      "capacity_risk": "LOW (Safe operational threshold)"
+    },
+    "30": {
+      "shift_pct": 30,
+      "target_zones": [
+        "A",
+        "B"
+      ],
+      "reallocated_shipments": 9541,
+      "baseline_spend": 6481773.2,
+      "simulated_spend": 6414160.2,
+      "monthly_savings": 67613.0,
+      "annualized_savings": 811356.0,
+      "savings_pct": 1.04,
+      "partner_volumes": {
+        "A1": 17759,
+        "A2": 16847,
+        "A3": 58101
+      },
+      "volume_deltas": {
+        "A1": 4770,
+        "A2": 4771,
+        "A3": -9541
+      },
+      "capacity_risk": "LOW (Safe operational threshold)"
+    },
+    "40": {
+      "shift_pct": 40,
+      "target_zones": [
+        "A",
+        "B"
+      ],
+      "reallocated_shipments": 12722,
+      "baseline_spend": 6481773.2,
+      "simulated_spend": 6389967.5,
+      "monthly_savings": 91805.7,
+      "annualized_savings": 1101668.4,
+      "savings_pct": 1.42,
+      "partner_volumes": {
+        "A1": 19350,
+        "A2": 18437,
+        "A3": 54920
+      },
+      "volume_deltas": {
+        "A1": 6361,
+        "A2": 6361,
+        "A3": -12722
+      },
+      "capacity_risk": "MODERATE (Requires phased ramp-up and pickup capacity audit)"
+    },
+    "50": {
+      "shift_pct": 50,
+      "target_zones": [
+        "A",
+        "B"
+      ],
+      "reallocated_shipments": 15902,
+      "baseline_spend": 6481773.2,
+      "simulated_spend": 6366807.4,
+      "monthly_savings": 114965.8,
+      "annualized_savings": 1379589.6,
+      "savings_pct": 1.77,
+      "partner_volumes": {
+        "A1": 20940,
+        "A2": 20027,
+        "A3": 51740
+      },
+      "volume_deltas": {
+        "A1": 7951,
+        "A2": 7951,
+        "A3": -15902
+      },
+      "capacity_risk": "MODERATE (Requires phased ramp-up and pickup capacity audit)"
+    }
+  },
+  "daily_trend": [
+    {
+      "date": "2026-01-01",
+      "orders": 1522,
+      "delivered": 1458,
+      "rto": 64,
+      "rto_rate": 4.2
+    },
+    {
+      "date": "2026-01-02",
+      "orders": 2329,
+      "delivered": 2184,
+      "rto": 144,
+      "rto_rate": 6.18
+    },
+    {
+      "date": "2026-01-03",
+      "orders": 2371,
+      "delivered": 2223,
+      "rto": 148,
+      "rto_rate": 6.24
+    },
+    {
+      "date": "2026-01-04",
+      "orders": 2302,
+      "delivered": 2190,
+      "rto": 107,
+      "rto_rate": 4.65
+    },
+    {
+      "date": "2026-01-05",
+      "orders": 2211,
+      "delivered": 2055,
+      "rto": 153,
+      "rto_rate": 6.92
+    },
+    {
+      "date": "2026-01-06",
+      "orders": 2341,
+      "delivered": 2177,
+      "rto": 158,
+      "rto_rate": 6.75
+    },
+    {
+      "date": "2026-01-07",
+      "orders": 2304,
+      "delivered": 2188,
+      "rto": 114,
+      "rto_rate": 4.95
+    },
+    {
+      "date": "2026-01-08",
+      "orders": 2383,
+      "delivered": 2261,
+      "rto": 122,
+      "rto_rate": 5.12
+    },
+    {
+      "date": "2026-01-09",
+      "orders": 2128,
+      "delivered": 1983,
+      "rto": 142,
+      "rto_rate": 6.67
+    },
+    {
+      "date": "2026-01-10",
+      "orders": 2021,
+      "delivered": 1884,
+      "rto": 134,
+      "rto_rate": 6.63
+    },
+    {
+      "date": "2026-01-11",
+      "orders": 2138,
+      "delivered": 2022,
+      "rto": 113,
+      "rto_rate": 5.29
+    },
+    {
+      "date": "2026-01-12",
+      "orders": 1920,
+      "delivered": 1785,
+      "rto": 135,
+      "rto_rate": 7.03
+    },
+    {
+      "date": "2026-01-13",
+      "orders": 1678,
+      "delivered": 1579,
+      "rto": 98,
+      "rto_rate": 5.84
+    },
+    {
+      "date": "2026-01-14",
+      "orders": 1614,
+      "delivered": 1499,
+      "rto": 112,
+      "rto_rate": 6.94
+    },
+    {
+      "date": "2026-01-15",
+      "orders": 1406,
+      "delivered": 1343,
+      "rto": 62,
+      "rto_rate": 4.41
+    },
+    {
+      "date": "2026-01-16",
+      "orders": 1571,
+      "delivered": 1481,
+      "rto": 89,
+      "rto_rate": 5.67
+    },
+    {
+      "date": "2026-01-17",
+      "orders": 1770,
+      "delivered": 1686,
+      "rto": 84,
+      "rto_rate": 4.75
+    },
+    {
+      "date": "2026-01-18",
+      "orders": 1999,
+      "delivered": 1910,
+      "rto": 88,
+      "rto_rate": 4.4
+    },
+    {
+      "date": "2026-01-19",
+      "orders": 1843,
+      "delivered": 1771,
+      "rto": 72,
+      "rto_rate": 3.91
+    },
+    {
+      "date": "2026-01-20",
+      "orders": 1896,
+      "delivered": 1787,
+      "rto": 109,
+      "rto_rate": 5.75
+    },
+    {
+      "date": "2026-01-21",
+      "orders": 1974,
+      "delivered": 1884,
+      "rto": 88,
+      "rto_rate": 4.46
+    },
+    {
+      "date": "2026-01-22",
+      "orders": 2256,
+      "delivered": 2129,
+      "rto": 125,
+      "rto_rate": 5.54
+    },
+    {
+      "date": "2026-01-23",
+      "orders": 2015,
+      "delivered": 1925,
+      "rto": 90,
+      "rto_rate": 4.47
+    },
+    {
+      "date": "2026-01-24",
+      "orders": 1972,
+      "delivered": 1877,
+      "rto": 93,
+      "rto_rate": 4.72
+    },
+    {
+      "date": "2026-01-25",
+      "orders": 1976,
+      "delivered": 1877,
+      "rto": 96,
+      "rto_rate": 4.86
+    },
+    {
+      "date": "2026-01-26",
+      "orders": 2186,
+      "delivered": 2046,
+      "rto": 137,
+      "rto_rate": 6.27
+    },
+    {
+      "date": "2026-01-27",
+      "orders": 5276,
+      "delivered": 5025,
+      "rto": 244,
+      "rto_rate": 4.62
+    },
+    {
+      "date": "2026-01-28",
+      "orders": 10073,
+      "delivered": 9647,
+      "rto": 426,
+      "rto_rate": 4.23
+    },
+    {
+      "date": "2026-01-29",
+      "orders": 8515,
+      "delivered": 8112,
+      "rto": 401,
+      "rto_rate": 4.71
+    },
+    {
+      "date": "2026-01-30",
+      "orders": 8353,
+      "delivered": 8014,
+      "rto": 331,
+      "rto_rate": 3.96
+    },
+    {
+      "date": "2026-01-31",
+      "orders": 8364,
+      "delivered": 8011,
+      "rto": 352,
+      "rto_rate": 4.21
+    }
+  ]
+}
