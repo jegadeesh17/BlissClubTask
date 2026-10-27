@@ -105,3 +105,4 @@ This design system mirrors the Minimal-UI-Kit pastel architecture:
 - Fixed 280px left navigation with brand mark, count chips, and nested subnav with progress steps.
 - Interactive stepper navigation between parts of each assignment question.
 - Full-bleed data tables with grey header bands and dashed separator borders.
+

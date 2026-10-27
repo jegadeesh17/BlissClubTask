@@ -1,7 +1,7 @@
 # Functional Specification: BlissClub Last Mile Operations Intelligence
 
 ## 1. Executive Summary & Objective
-This specification defines the functional requirements, calculation formulas, and acceptance criteria for the Last Mile Operations Intelligence and Decision Support Suite for BlissClub. The system processes 92,707 e-commerce shipments and a multi-partner rate card to answer 6 strategic business questions for the Last Mile Operations Manager evaluation.
+This specification defines the functional requirements, calculation formulas, and acceptance criteria for the Last Mile Operations Intelligence and Decision Support Suite for BlissClub. The system processes 92,707 e-commerce shipments and a multi-partner rate card to answer 6 strategic business questions for the Operations Analyst assessment.
 
 ---
 
@@ -100,6 +100,6 @@ Charges apply **per Airway Bill (AWB)**:
 ### Spec 6: 90-Day Execution Roadmap (Question 6)
 - **Deliverables:**
   - Structured 30-60-90 day agenda with explicit milestones, operational owners, and target KPIs.
-  - Executive Defense Memo (`docs/EXECUTIVE_MEMO.md`).
+  - Operations Strategy Report (`docs/EXECUTIVE_MEMO.md`).
   - Interactive decision dashboard deployed on GitHub Pages.
 

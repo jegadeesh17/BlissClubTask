@@ -1,7 +1,7 @@
-# Executive Decision Memo: Last Mile Operations Strategy & 90-Day Roadmap
+# Operations Strategy Report: Last Mile Performance & 90-Day Plan
 
-**To:** Executive Leadership / Interview Panel, BlissClub  
-**From:** Candidate (Last Mile Operations Manager Evaluation)  
+**To:** Operations Leadership, BlissClub  
+**From:** Candidate (Operations Analyst Assessment)  
 **Date:** January 2026 Audit (92,707 Shipments Analyzed)  
 **Interactive Dashboard:** Hosted live on GitHub Pages (`https://jegadeesh17.github.io/BlissClubTask`)
 
@@ -175,10 +175,10 @@ The single largest point of failure is **Stage 2 (Handover Lag)**. Over **55% of
 
 ## 6. Your 90-Day Operational Action Agenda (Question 6)
 
-### Avoiding the Junior Traps (What NOT to Do)
-- **Trap 1 (Reckless Cost-Cutting):** Moving 100% volume to A1 overnight. *Result:* Carrier pickup capacity collapse and delivery delays.
-- **Trap 2 (Over-Engineering):** Attempting to build an in-house AI routing engine from scratch. *Result:* 6 months of tech delays and zero 90-day ROI.
-- **Trap 3 (Anti-COD Crusade):** Disabling COD completely. *Result:* 36.7% drop in gross revenue and marketing mutiny.
+### Strategic Risk Assessment: Pitfalls & Failure Modes to Avoid
+- **Pitfall 1 (Uncalibrated Volume Shifts):** Moving 100% volume to A1 overnight. *Failure Mode:* Carrier pickup capacity collapse and severe transit delays. *Mitigation:* Phased 25% reallocation in Zone A/B with daily pickup caps.
+- **Pitfall 2 (Premature Over-Engineering):** Attempting to build a bespoke in-house routing engine from scratch. *Failure Mode:* 6–9 months of engineering backlog delivering zero near-term ROI. *Mitigation:* Exploit immediate contractual and cutoff levers first.
+- **Pitfall 3 (Indiscriminate COD Restrictions):** Disabling COD completely. *Failure Mode:* Eliminates 36.7% of total sales volume (34,000 orders), damaging customer acquisition. *Mitigation:* Address root cause through checkout UPI discounts and high-risk pincode verification.
 
 ---
 
@@ -227,5 +227,5 @@ Target: ₹55k/mo savings; TAT -12h  Target: COD RTO 12.2% ➔ 10.0%    Target: 
 
 ---
 
-*This document, backed by the interactive decision dashboard at `docs/index.html` and verified Python analytics engine in `src/`, provides the complete strategic framework to defend BlissClub’s last-mile operations.*
+*This document, backed by the interactive decision dashboard at `docs/index.html` and verified Python analytics engine in `src/`, provides the complete strategic and analytical framework to optimize BlissClub’s last-mile operations.*
 

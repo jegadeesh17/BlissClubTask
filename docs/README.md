@@ -11,6 +11,6 @@ Documentation index for the BlissClub Last Mile Operations Intelligence & Decisi
 | [`DECISIONS.md`](./DECISIONS.md) | Architectural and strategic decision records (ADRs) | Software Architect | As decisions are made |
 | [`TASKS.json`](./TASKS.json) | Granular implementation tasks with test verification commands | Task Planner | Phase 2.3 |
 | [`WALKTHROUGH.md`](./WALKTHROUGH.md) | Plain-English plan walkthrough and system overview | Orchestrator | Phase 2.4 |
-| [`EXECUTIVE_MEMO.md`](./EXECUTIVE_MEMO.md) | Board-ready interview defense answers for all 6 questions | Team | Phase 3.3 / Handover |
+| [`EXECUTIVE_MEMO.md`](./EXECUTIVE_MEMO.md) | Comprehensive operations strategy report answering all 6 questions | Team | Phase 3.3 / Handover |
 | [`QA_RESULTS.json`](./QA_RESULTS.json) | Automated verification and test execution logs | QA Tester | During builds |
 

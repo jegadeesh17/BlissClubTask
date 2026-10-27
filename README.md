@@ -1,6 +1,6 @@
 # BlissClub Last Mile Operations Intelligence & Decision Suite
 
-An end-to-end data analytics pipeline, rate card financial model, and executive decision suite built for the **Last Mile Operations Manager (Ops LM)** evaluation at BlissClub.
+An end-to-end data analytics pipeline, rate card financial model, and operations strategy suite built for the **Operations Analyst Intern** assessment at BlissClub.
 
 The system analyzes **92,707 e-commerce shipments** (January 2026) and a 3-partner contracted **Rate Card** (Aggregators A1, A2, A3) to deliver audited answers, root cause diagnostics, and an actionable 90-day agenda across all 6 assignment problems.
 
@@ -37,7 +37,7 @@ BlissClubTask/
 ├── Assignment - Ops LM (3) (1).xlsx  # Raw source data (92,707 shipments + Rate Cards)
 ├── docs/                             # Living documentation suite & GitHub Pages root
 │   ├── index.html                    # GitHub Pages interactive web application
-│   ├── EXECUTIVE_MEMO.md             # Comprehensive executive defense brief (Q1–Q6)
+│   ├── EXECUTIVE_MEMO.md             # Comprehensive operations strategy report (Q1–Q6)
 │   ├── WALKTHROUGH.md                # Plain-English system walkthrough
 │   ├── SPEC.md                       # Functional requirements & acceptance criteria
 │   ├── ARCHITECTURE.md               # Technical architecture & mathematical formulas
@@ -88,8 +88,8 @@ Then navigate to `http://localhost:8000`.
 
 ---
 
-## Comprehensive Executive Memo
+## Comprehensive Operations Strategy Report
 
-For the complete, board-ready strategic defense paper answering all 6 assignment questions in detail, read:
+For the complete strategic report answering all 6 assignment questions in detail, read:
 👉 **[`docs/EXECUTIVE_MEMO.md`](docs/EXECUTIVE_MEMO.md)**
 
