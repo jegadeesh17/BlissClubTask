@@ -36,12 +36,9 @@ BlissClubTask/
 ├── docs/                             # Living documentation suite & GitHub Pages root
 │   ├── index.html                    # GitHub Pages interactive web application
 │   ├── EXECUTIVE_MEMO.md             # Comprehensive operations strategy report (Q1–Q6)
-│   ├── WALKTHROUGH.md                # Plain-English system walkthrough
 │   ├── SPEC.md                       # Functional requirements & acceptance criteria
 │   ├── ARCHITECTURE.md               # Technical architecture & mathematical formulas
 │   ├── DECISIONS.md                  # Architectural Decision Records (ADRs)
-│   ├── TASKS.json                    # Ordered task breakdown and test commands
-│   ├── QA_RESULTS.json               # Test verification logs
 │   ├── data/
 │   │   └── ops_data.json             # Pre-calculated analytics payload
 │   └── README.md                     # Documentation index

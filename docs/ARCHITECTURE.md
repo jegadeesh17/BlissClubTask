@@ -33,16 +33,12 @@ flowchart TD
 ```
 BlissClubTask/
 ├── .gitignore
-├── agent.md                          # Repository instructions and agreed postures
 ├── Assignment - Ops LM (3) (1).xlsx  # Raw source data
 ├── docs/                             # Living documentation suite & GitHub Pages root
 │   ├── README.md                     # Docs index
-│   ├── PROJECT_MENTAL_MODEL.md       # Operational mental model
-│   ├── PROJECT_STATUS.md             # Milestone progress checklist
 │   ├── SPEC.md                       # Functional requirements & acceptance criteria
 │   ├── ARCHITECTURE.md               # Technical architecture & formulas
 │   ├── DECISIONS.md                  # Architectural Decision Records (ADRs)
-│   ├── TASKS.json                    # Ordered implementation tasks
 │   ├── EXECUTIVE_MEMO.md             # Board-ready answers to Q1-Q6
 │   └── index.html                    # GitHub Pages interactive web application
 ├── src/                              # Core Python engine
