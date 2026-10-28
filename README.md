@@ -31,10 +31,8 @@ The interactive decision dashboard is hosted live on GitHub Pages:
 ```
 BlissClubTask/
 ├── .gitignore
-├── agent.md                          # Repository instructions and agreed postures
 ├── README.md                         # Project overview and run guide
 ├── CHANGELOG.md                      # Milestone changelog
-├── Assignment - Ops LM (3) (1).xlsx  # Raw source data (92,707 shipments + Rate Cards)
 ├── docs/                             # Living documentation suite & GitHub Pages root
 │   ├── index.html                    # GitHub Pages interactive web application
 │   ├── EXECUTIVE_MEMO.md             # Comprehensive operations strategy report (Q1–Q6)
